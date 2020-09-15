@@ -1,5 +1,5 @@
-function convertCelciusToFahrenheit(tempInCelcius)
+function convertCelsiusToFahrenheit(tempInCelsius)
 {
-    return (((tempInCelcius * 9/5) + 32));
+    return (((tempInCelsius * 9/5) + 32));
 }
 
