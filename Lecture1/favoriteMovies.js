@@ -19,8 +19,8 @@ function printFavoriteMovies()
     }
 }
 
-addFavoriteMovie("Spidernman");
-addFavoriteMovie("Harry Potter");
-addFavoriteMovie("The Man In the High Castle");
+// addFavoriteMovie("Spidernman");
+// addFavoriteMovie("Harry Potter");
+// addFavoriteMovie("The Man In the High Castle");
 
-printFavoriteMovies();
+// printFavoriteMovies();
