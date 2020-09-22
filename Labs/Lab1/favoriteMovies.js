@@ -18,6 +18,7 @@ function printFavoriteMovies() {
     }
 }
 
+
 // addFavoriteMovie("Spidernman");
 // addFavoriteMovie("Harry Potter");
 // addFavoriteMovie("Avatar");
