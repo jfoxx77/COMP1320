@@ -18,6 +18,7 @@ function getUserInput(){
     const monthRegex = /^(0?[1-9]|1[012])$/;
 
     while(true){
+        
         var year = readlineSync.question("\n\t\t\t\t Please enter year [YYYY] : ", {
             limit: yearRegex, 
             limitMessage: '\nSorry, $<lastInput> is not a valid year.'
