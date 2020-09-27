@@ -41,9 +41,12 @@ function getUserInput(){
 
         console.log( "\n\t\t\t\t || " + constants.numberToMonthLong[month - 1] + " " + day + ", " + year + " is a " + dayOfWeekStr + " ||" +"\n");
 
-        var result = readlineSync.keyInYN('Do you want to query another date?');
+        var result = readlineSync.question('\nDo you want to query another date? [y/n]', {
+            limit: ['y', 'n', 'Y', 'N'],
+            limitMessage: '\nPlease enter `y` or `n`.'
+        });
 
-        if(result == "n"){
+        if(result == "n" || result == 'N'){
             break;
         }
     }
