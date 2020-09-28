@@ -7,7 +7,7 @@ function getDayOfTheWeek(year, month, day){
     let numOfTwelves = getQuotient(lastTwoDigits, 12);                                          // Step 1
     let remainderOfDivision = getRemainder(lastTwoDigits, 12);                                  // Step 2
     let numOfFours = getQuotient(remainderOfDivision, 4);                                       // Step 3
-    let monthCode = considerOffsets(year, month, constants.monthCodes2[month]);                 // Step 5
+    let monthCode = considerOffsets(year, month, constants.monthCodes[month]);                  // Step 5
     let daysTotal = (numOfTwelves + remainderOfDivision + numOfFours + day + monthCode);        // Step 6a
     let dayOfWeek = getRemainder(daysTotal, 7);                                                 // Step 6b
 
@@ -23,7 +23,7 @@ function makeCalendar(){
     let month = 0;
 
     while(month <= 11){
-        let numOfDaysInMonth = constants.daysInMonth2[month];
+        let numOfDaysInMonth = constants.daysInMonth[month];
         let dayOfWeek = getDayOfTheWeek(year, month, 1);
         
         if(isItFebruaryInALeapYear(year, month)){
@@ -104,5 +104,5 @@ function getQuotient(dividend, divisor){
     return parseInt(dividend / divisor, 10);
 }
 
-console.log(getFirstTwoDigitsOfYear(1601))
+
 module.exports = {getDayOfTheWeek, isLeapYear, makeCalendar};
