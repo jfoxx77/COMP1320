@@ -65,12 +65,18 @@ function isItFebruaryInALeapYear(year, month) {
 // Part 1
 function getDayOfTheWeek(year, month, day) {
   const lastTwoDigits = getLastTwoDigitsOfYear(year);
-  const numOfTwelves = getQuotient(lastTwoDigits, 12); // Step 1
-  const remainderOfDivision = getRemainder(lastTwoDigits, 12); // Step 2
-  const numOfFours = getQuotient(remainderOfDivision, 4); // Step 3
-  const monthCode = considerOffsets(year, month, constants.monthCodes[month]); // Step 5
-  const daysTotal = (numOfTwelves + remainderOfDivision + numOfFours + day + monthCode); // Step 6a
-  const dayOfWeek = getRemainder(daysTotal, 7); // Step 6b
+  // Step 1
+  const numOfTwelves = getQuotient(lastTwoDigits, 12);
+  // Step 2
+  const remainderOfDivision = getRemainder(lastTwoDigits, 12);
+  // Step 3
+  const numOfFours = getQuotient(remainderOfDivision, 4);
+  // Step 5
+  const monthCode = considerOffsets(year, month, constants.monthCodes[month]);
+  // Step 6a
+  const daysTotal = (numOfTwelves + remainderOfDivision + numOfFours + day + monthCode);
+  // Step 6b
+  const dayOfWeek = getRemainder(daysTotal, 7);
 
   return (constants.weekdays2[dayOfWeek]);
 }
