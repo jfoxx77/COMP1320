@@ -1,8 +1,8 @@
 const dayOfWeek = require('../lab-three');
-const constants = require('../constants');
+const calendarConstants = require('../calendar-constants');
 
 function getExpectedDayOfWeek(date) {
-  return constants.weekday[date.getDay()];
+  return calendarConstants.weekday[date.getDay()];
 }
 
 function splitDateToDayMonthYear(date) {
@@ -15,16 +15,16 @@ function splitDateToDayMonthYear(date) {
 
 describe('isLeapYear Function', () => {
   test('Should return false for common years', () => {
-    for (let i = 0; i < constants.commonYears.length; i++) {
-      expect(dayOfWeek.isLeapYear(constants.commonYears[i])).toBeFalsy();
+    for (let i = 0; i < calendarConstants.commonYears.length; i++) {
+      expect(dayOfWeek.isLeapYear(calendarConstants.commonYears[i])).toBeFalsy();
     }
   });
 });
 
 describe('isLeapYear Function', () => {
   test('Should return true for leap years', () => {
-    for (let i = 0; i < constants.leapYears.length; i++) {
-      expect(dayOfWeek.isLeapYear(constants.leapYears[i])).toBeTruthy();
+    for (let i = 0; i < calendarConstants.leapYears.length; i++) {
+      expect(dayOfWeek.isLeapYear(calendarConstants.leapYears[i])).toBeTruthy();
     }
   });
 });
@@ -32,8 +32,8 @@ describe('isLeapYear Function', () => {
 // @Jamie Tests
 describe('Day of Week Function (Range)', () => {
   test('Should correctly get day(of week) given date (year, month, day) in range', () => {
-    const endDate = new Date(3000, 0, 1);
-    for (let date = new Date(1000, 0, 1); date <= endDate; date.setDate(date.getDate() + 1)) {
+    const endDate = new Date(5000, 0, 1);
+    for (let date = new Date(0, 0, 1); date <= endDate; date.setDate(date.getDate() + 1)) {
       const splitDate = splitDateToDayMonthYear(date);
       const actualDayOfWeek = dayOfWeek.getDayOfTheWeek(splitDate[0], splitDate[1], splitDate[2]);
       const expectedDayOfWeek = getExpectedDayOfWeek(date);

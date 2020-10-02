@@ -1,6 +1,6 @@
 const readlineSync = require('readline-sync');
 const dayOfWeek = require('./lab-three');
-const constants = require('./constants');
+const calendarConstants = require('./calendar-constants');
 
 function printWelcomeMessage() {
   console.log('\n\n\n=============================== Welcome =============================== \n');
@@ -25,7 +25,7 @@ function getMonthFromUser() {
   return month;
 }
 
-function getNumberOfDaysInMonthFromUser(year, month) {
+function getNumberOfDaysInMonth(year, month) {
   switch (month) {
     case 1:
       return dayOfWeek.isLeapYear(year) ? 29 : 28;
@@ -39,16 +39,16 @@ function getNumberOfDaysInMonthFromUser(year, month) {
 function getDayFromUser(year, month) {
   const day = readlineSync.question('\n\t\t\t\t Please enter day    [DD] : ', {
     limit(input) {
-      const numberOfDaysInMonth = getNumberOfDaysInMonthFromUser(year, month - 1);
+      const numberOfDaysInMonth = getNumberOfDaysInMonth(year, month - 1);
       return Number(input) >= 1 && Number(input) <= numberOfDaysInMonth;
     },
-    limitMessage: `\nSorry, $<lastInput> is not a valid day in ${constants.numberToMonthLong[month - 1]}.`,
+    limitMessage: `\nSorry, $<lastInput> is not a valid day in ${calendarConstants.numberToMonthLong[month - 1]}.`,
   });
   return day;
 }
 
 function printDayOfWeek(year, month, day, dayOfWeekStr) {
-  console.log(`\n\t\t\t\t || ${constants.numberToMonthLong[month - 1]} ${day}, ${year} is a ${dayOfWeekStr} ||`, '\n');
+  console.log(`\n\t\t\t\t || ${calendarConstants.numberToMonthLong[month - 1]} ${day}, ${year} is a ${dayOfWeekStr} ||`, '\n');
 }
 
 function promptUserToQueryAnotherDate() {

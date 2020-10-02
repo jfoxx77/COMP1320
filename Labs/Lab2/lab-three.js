@@ -1,4 +1,4 @@
-const constants = require('./constants');
+const calendarConstants = require('./calendar-constants');
 
 // Helpers
 
@@ -7,8 +7,8 @@ function isLeapYear(year) {
 }
 
 function incrementDayOfWeek(dayOfWeek) {
-  const dayOfWeekAsInt = constants.weekdayToInt[dayOfWeek];
-  return constants.weekday[(dayOfWeekAsInt + 1) % 7];
+  const dayOfWeekAsInt = calendarConstants.weekdayToInt[dayOfWeek];
+  return calendarConstants.weekday[(dayOfWeekAsInt + 1) % 7];
 }
 
 function printDay(year, month, day, dayOfWeek) {
@@ -72,13 +72,13 @@ function getDayOfTheWeek(year, month, day) {
   // Step 3
   const numOfFours = getQuotient(remainderOfDivision, 4);
   // Step 5
-  const monthCode = considerOffsets(year, month, constants.monthCodes[month]);
+  const monthCode = considerOffsets(year, month, calendarConstants.monthCodes[month]);
   // Step 6a
   const daysTotal = (numOfTwelves + remainderOfDivision + numOfFours + day + monthCode);
   // Step 6b
   const dayOfWeek = getRemainder(daysTotal, 7);
 
-  return (constants.weekdays2[dayOfWeek]);
+  return (calendarConstants.weekdays2[dayOfWeek]);
 }
 
 // Part 2
@@ -87,7 +87,7 @@ function makeCalendar() {
   let month = 0;
 
   while (month <= 11) {
-    let numOfDaysInMonth = constants.daysInMonth[month];
+    let numOfDaysInMonth = calendarConstants.daysInMonth[month];
     let dayOfWeek = getDayOfTheWeek(year, month, 1);
 
     if (isItFebruaryInALeapYear(year, month)) {
