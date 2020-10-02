@@ -91,15 +91,17 @@ function makeCalendar() {
     let dayOfWeek = getDayOfTheWeek(year, month, 1);
 
     if (isItFebruaryInALeapYear(year, month)) {
-      numOfDaysInMonth++;
+      numOfDaysInMonth += 1;
     }
 
-    for (let day = 1; day <= numOfDaysInMonth; day++) {
+    for (let day = 1; day <= numOfDaysInMonth; day += 1) {
       printDay(year, month, day, dayOfWeek);
       dayOfWeek = incrementDayOfWeek(dayOfWeek);
     }
-    month++;
+    month += 1;
   }
 }
+
+//     'no-plusplus': 'off',
 
 module.exports = { getDayOfTheWeek, isLeapYear, makeCalendar };

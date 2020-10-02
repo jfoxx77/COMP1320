@@ -15,17 +15,17 @@ function splitDateToDayMonthYear(date) {
 
 describe('isLeapYear Function', () => {
   test('Should return false for common years', () => {
-    for (let i = 0; i < calendarConstants.commonYears.length; i++) {
-      expect(dayOfWeek.isLeapYear(calendarConstants.commonYears[i])).toBeFalsy();
-    }
+    calendarConstants.commonYears.forEach((year) => {
+      expect(dayOfWeek.isLeapYear(year)).toBeFalsy();
+    });
   });
 });
 
 describe('isLeapYear Function', () => {
   test('Should return true for leap years', () => {
-    for (let i = 0; i < calendarConstants.leapYears.length; i++) {
-      expect(dayOfWeek.isLeapYear(calendarConstants.leapYears[i])).toBeTruthy();
-    }
+    calendarConstants.leapYears.forEach((year) => {
+      expect(dayOfWeek.isLeapYear(year)).toBeTruthy();
+    });
   });
 });
 

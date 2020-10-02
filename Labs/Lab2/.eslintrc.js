@@ -7,7 +7,6 @@ module.exports = {
   },
   rules: {
     'linebreak-style': ['error', 'windows'],
-    'no-plusplus': 'off',
     'no-console': 'off',
   },
 };
