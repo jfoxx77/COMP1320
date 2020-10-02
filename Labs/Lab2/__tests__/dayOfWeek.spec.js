@@ -32,8 +32,8 @@ describe('isLeapYear Function', () => {
 // @Jamie Tests
 describe('Day of Week Function (Range)', () => {
   test('Should correctly get day(of week) given date (year, month, day) in range', () => {
-    const endDate = new Date(5000, 0, 1);
-    for (let date = new Date(0, 0, 1); date <= endDate; date.setDate(date.getDate() + 1)) {
+    const endDate = new Date(3000, 0, 1);
+    for (let date = new Date(1000, 0, 1); date <= endDate; date.setDate(date.getDate() + 1)) {
       const splitDate = splitDateToDayMonthYear(date);
       const actualDayOfWeek = dayOfWeek.getDayOfTheWeek(splitDate[0], splitDate[1], splitDate[2]);
       const expectedDayOfWeek = getExpectedDayOfWeek(date);
