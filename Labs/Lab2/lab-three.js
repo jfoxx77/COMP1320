@@ -102,6 +102,4 @@ function makeCalendar() {
   }
 }
 
-//     'no-plusplus': 'off',
-
 module.exports = { getDayOfTheWeek, isLeapYear, makeCalendar };
